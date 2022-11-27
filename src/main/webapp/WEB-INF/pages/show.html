@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>All users</h2>
+<br>
+<div>
+    <th:block th:each="us : ${users}">
+        <h1 th:text="${us}"></h1>
+    </th:block>
+</div>
+</body>
+</html>
