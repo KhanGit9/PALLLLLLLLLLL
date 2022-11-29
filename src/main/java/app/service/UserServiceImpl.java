@@ -1,9 +1,11 @@
 package app.service;
 
+import app.DAO.UserDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import app.DAO.UserDao;
 import app.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
@@ -15,23 +17,29 @@ public class UserServiceImpl implements UserService  {
     }
 
     public UserServiceImpl () {}
+    @Transactional
     @Override
-    public void Add(User user) {
-        userDao.Add(user);
+    public void add(User user) {
+        userDao.add(user);
     }
-
+    @Transactional
     @Override
-    public void Remove(User user) {
-        userDao.Remove(user);
+    public void remove(int id) {
+        userDao.remove(id);
     }
-
+    @Transactional
     @Override
-    public void Update(User user) {
-        userDao.Update(user);
+    public void update(int id, User user) {
+        userDao.update(id, user);
     }
-
+    @Transactional
     @Override
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
+    }
+
+    @Override
+    public User get(int id) {
+        return userDao.get(id);
     }
 }

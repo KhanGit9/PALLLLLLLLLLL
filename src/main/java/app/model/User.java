@@ -1,13 +1,14 @@
 package app.model;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "User")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    int id;
     private String name;
     private int age;
     private String lastname;
@@ -51,5 +52,13 @@ public class User {
                 ", age=" + age +
                 ", lastname='" + lastname + '\'' +
                 '.';
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
