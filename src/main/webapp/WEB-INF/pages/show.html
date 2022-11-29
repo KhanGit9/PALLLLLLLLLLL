@@ -12,18 +12,21 @@
         <th>Age</th>
         <th>Lastname</th>
         <th>Name</th>
-        <th>Manupulation</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
     </tr>
     <th:block th:each="us:${users}">
     <tr>
-        <td><h1 th:text="${us.getAge()}"></h1></td>
-        <td><h1 th:text="${us.getName()}"></h1></td>
-        <td><h1 th:text="${us.getLastname()}"></h1></td>
-        <td><h1><input type="submit" value="update" align="center"
-                       th:href="@{show/{id}(id=${us.getId()})}" /></h1></td>
+        <td><h3 th:text="${us.getAge()}"></h3></td>
+        <td><h3 th:text="${us.getName()}"></h3></td>
+        <td><h3 th:text="${us.getLastname()}"></h3></td>
+        <td><a th:href="@{show/{id}/update(id=${us.getId()})}"><input type="submit" value="Update"></a></td>
+        <td><form th:method="DELETE" th:action="@{/show/{id}(id=${us.getId()})}"><input type="submit" value="Delete"></form></td>
+
     </tr>
     </th:block>
 </table>
+
 <br>
 <input type="button" value="add new user" align="center"
 onclick="window.location.href = 'show/add'" />

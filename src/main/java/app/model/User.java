@@ -18,9 +18,15 @@ public class User {
         this.age = age;
         this.lastname = lastname;
     }
-    public User() {
+    public User() {}
+
+    public long getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
@@ -54,11 +60,4 @@ public class User {
                 '.';
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

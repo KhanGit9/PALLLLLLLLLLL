@@ -35,14 +35,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void update(int id, User user) {
-       entityManager.merge(get(id));
-    }
+    public void update(int id, User user) { entityManager.merge(user); }
 
     @Override
     public List<User> getAllUsers() {
         return entityManager.createQuery("FROM User", User.class).getResultList();
-
     }
 
     @Override
